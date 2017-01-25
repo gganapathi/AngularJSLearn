@@ -1,0 +1,19 @@
+/**
+ * Created by Ganapathi on 24-01-2017.
+ */
+angular.module('NoteWrangler').filter('nwCategoryFilter',function(){
+    return function(collection,category){
+        var newCollection = [];
+        if(category && category.id){
+            for(var i=0, l=collection.length; i<l;i++){
+                if(collection[i].categoryId===category.id){
+                    newCollection.push(collection[i]);
+                }
+            }
+            return newCollection;
+        }else{
+            return collection;
+        }
+
+    };
+});
